@@ -73,6 +73,8 @@ Sub tickercalculations()
                          Range("J" & 2 + j).Interior.ColorIndex = 3
                     Case Else
                         Range("J" & 2 + j).Interior.ColorIndex = 0
+                End Select
+              Select Case Change
                     Case Is > 0
                         Range("K" & 2 + j).Interior.ColorIndex = 4
                     Case Is < 0
