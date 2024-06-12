@@ -1,78 +1,52 @@
-# VBA-Challenge
-Module 2's VBA challenge tested our knowledge of proper syntax usage, index definition and looping. While challenging, upon completion of this assignment my knowledge and understanding of how VBA scripting can lend a much needed lens into large data-sets; and smarter ways to manipulate them.
+# VBA Challenge: Stock Data Analysis
 
-This code uitilized the WorksheetFunction.Min found on https://learn.microsoft.com/en-us/office/vba.
+## Overview
 
-Some starter PseudoCode/Notes:
+This VBA script is designed to analyze stock data, specifically calculating yearly change, percentage change, and total volume for each stock ticker. The challenge tested our understanding of proper syntax usage, index definition, and looping in VBA. Through this assignment, we gained insights into effectively manipulating large datasets with VBA scripting. This challenge was especially enriching because it provided an unique understanding of excel functions, and executing them under-the-hood for more advanced capabilities. The logic used in this code has laid some of the ground work for pythonic control flow.
 
-Sub tickercalculations()
+## Technologies Utilized
 
-'goal: to create a nested forloop that scans through our data to return ticker name 'yearly change b/w opening and closing stock price, percentage change and total volume 'declaring variables i and j integers for loop counters 'variables are decdlared 'Double' to account for values with decimal points 'start (point to start counting) and rowCount (total rows)
+Microsoft Excel: For managing and visualizing the stock data. VBA (Visual Basic for Applications): For automating data analysis within Excel.
 
-'choose data types, 'Double's store decimals/percentages 
+## Major Functions and Concepts
 
-Dim total As Double
-Dim i As Long
-Dim change As Double
-Dim averageChange As Double
-Dim dailyChange As Double
-Dim percentChange As Double
+### Key Variables and Data Types
+
+Double: Used to store values with decimal points, such as percentages and changes in stock prices.
+Long: Used for loop counters and storing row counts to handle large datasets efficiently.
+
+total: Stores the cumulative total volume for each stock ticker.
+change: Calculates the yearly change in stock price.
+percentChange: Calculates the percentage change in stock price.
+rowCount: Determines the number of rows in the dataset.
+start: Tracks the starting row for each stock ticker.
+
+### Core Logic
+
+**Initializing and Formatting:**
+
+Set up column titles for "Ticker", "Yearly Change", "Percent Change", and "Total Volume".
+
+**Looping Through Data:**
+
+A nested loop iterated through each row of the dataset, checking for changes in stock ticker symbols to calculate required values.
+
+**Conditions and Calculations:**
+
+Conditions ensured correct calculation of yearly change and percentage change.
+Handled cases where starting stock prices are zero to avoid division errors.
+
+**Output Results:**
+
+Populated the results in the respective columns for each stock ticker.
+Applied designated formatting for numerical values and percentages.
+
+**Conclusion**
+
+This VBA script effectively processed stock data, providing a clear overview of yearly changes, percentage changes, and total volumes for each stock ticker. Through the use of loops, conditions, and appropriate data types, we learned to efficiently handle large datasets, demonstrating the accuracy and agility of VBA in data analysis tasks. 
 
 
-'declare rowCount to avoid cell reference
-'declare long to hold higher value
-
-Dim rowCount As Long
-Dim j As Integer
-Dim start As Long
-
-'declare rowCount to avoid cell reference
-'declare long to hold higher value
-Dim rowCount As Long
 
 
-'formatting column titles
-
-Range("I1").value = "Ticker"
-Range("J1").value = "Yearly Change"
-Range("K1").value = "Percent Change"
-Range("L1").value = "Toal Volume"
-
-'initialize starting values
-
-j = 0
-total = 0
-change = 0
-start = 2
 
 
- 'track location of each ticker in new column and populate in 'Ticker Column', iterating till ticker changes
-rowCount = cells(Rows.Count, "A").End(xlUp).row
-For i = 2 To rowCount
-    If cells(i + 1, 1).value <> cells(i, 1).value Then
-        total = total + cells(i, 7).value
-        
-        'Conditions to populate the data needed
-        'Need to make sure to concatenate to ensure correct cell reference and looping
-        'Addiontally need to concatenate to ensure % symbol
-        
-        If total = 0 Then
-            Range("I" & 2 + j).value = cells(i, 1).value
-            Range("J" & 2 + j).value = 0
-            Range("K" & 2 + j).value = "%" & 0
-            Range("L" & 2 + j).value = 0
-Else If cells(start, 3) = 0 Then For find_value = start To i If cells(find_value, 3) <> 0 Then start = find_value Exit For End If Next find_value End If
-
-            'subtraction + percentage change prompt
-            change = (cells(i, 6) - cells(start, 3))
-            percentChange = change / cells(start, 3)
-            
-            start = i + 1
-            
-            
-            Range("I" & 2 + j).value = cells(i, 1).value
-            Range("J" & 2 + j).value = change
-            Range("J" & 2 + j).NumberFormat = "0.00"
-            Range("K" & 2 + j).value = percentChange
-            Range("K" & 2 + j).NumberFormat = "0.00%"
-            Range("L" & 2 + j).value = total
