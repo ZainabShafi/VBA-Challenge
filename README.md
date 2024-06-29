@@ -4,6 +4,16 @@
 
 This VBA script is designed to analyze stock data, specifically calculating yearly change, percentage change, and total volume for each stock ticker. The challenge tested our understanding of proper syntax usage, index definition, and looping in VBA. Through this assignment, we gained insights into effectively manipulating large datasets with VBA scripting. This challenge was especially enriching because it provided an unique understanding of excel functions, and executing them under-the-hood for more advanced capabilities. The logic used in this code has laid some of the ground work for pythonic control flow.
 
+## Takeaways and Benefits: 
+
+The exercise of creating and running this script uncovered several benefits this project, and adaptations of it, could provide for a variety of stakeholders:
+
+**Improved Data Management**: Efficient handling of a large dataset demonstrates the capacity to manage vast amounts of data, ensuring that valuable information is not lost or misinterpreted.
+
+**Strategic Decision-Making**: By providing a clear overview of key stock metrics such as yearly changes and total volumes, stakeholders can better understand market trends and investor behavior, leading to more informed and strategic decisions.
+
+**Operational Efficiency**: Automating the process of data analysis through VBA scripting reduces the time and effort required for manual calculations, freeing up resources for other critical tasks and improving overall operational efficiency.
+
 ## Technologies Utilized
 
 Microsoft Excel: For managing and visualizing the stock data. VBA (Visual Basic for Applications): For automating data analysis within Excel.
